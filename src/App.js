@@ -19,9 +19,9 @@ class App extends Component {
   //     .then(json => this.setState({ user: json }));
   // };
 
-  handelSignOutClick = () => {
-    this.setState({ user: {} });
-  };
+  // handelSignOutClick = () => {
+  //   this.setState({ user: {} });
+  // };
 
   render() {
     console.log(this.state.name);
@@ -31,7 +31,7 @@ class App extends Component {
           <Header
             user={this.state.user}
             //handelSignInClike={this.handelSignInClick}
-            handelSignOutClike={this.handelSignOutClick}
+            //handelSignOutClike={this.handelSignOutClick}
           />
           <Menu />
           <main className="main">

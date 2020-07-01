@@ -38,14 +38,16 @@ const mapStateToProps = ({ user }) => ({
 
 const mapDispatchtoProps = dispatch => ({
   handelSignInClike() {
-    alert(123);
     fetch(`https://my-json-server.typicode.com/kevindongzg/demo/login`)
       .then(res => res.json())
       .then(json => dispatch(setUser(json)));
   },
 
   handelSignOutClike() {
-    dispatch(setUser(undefined));
+    window.location.href = 'http://localhost:1234/';
+    setTimeout(() => {
+      dispatch(setUser(undefined));
+    }, 1000);
   }
 });
 
