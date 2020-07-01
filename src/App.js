@@ -13,12 +13,26 @@ class App extends Component {
     this.state = { user: {} };
   }
 
+  handelSignInClike = event => {
+    fetch(`https://my-json-server.typicode.com/kevindongzg/demo/login`)
+      .then(res => res.json())
+      .then(json => this.setState({ user: json }));
+  };
+
+  handelSignOutClike = () => {
+    this.setState({ user: {} });
+  };
+
   render() {
     console.log(this.state.user);
     return (
       <div className="app">
         <Router>
-          <Header />
+          <Header
+            user={this.state.user}
+            handelSignInClike={this.handelSignInClike}
+            handelSignOutClike={this.handelSignOutClike}
+          />
           <Menu />
           <main className="main">
             <Switch>
