@@ -4,10 +4,17 @@ import Header from './layout/Header';
 import Menu from './layout/Menu';
 import Home from './views/Home';
 import { modules } from './utils';
+import axios from 'axios';
 import './App.scss';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = { user: {} };
+  }
+
   render() {
+    console.log(this.state.user);
     return (
       <div className="app">
         <Router>
