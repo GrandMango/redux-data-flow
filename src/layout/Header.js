@@ -15,9 +15,11 @@ class Header extends Component {
               Sign in
             </a>
           ) : null}
-          {JSON.stringify(user) === '{}' || user === undefined ? null : <img src="" alt="头像" />}
           {JSON.stringify(user) === '{}' || user === undefined ? null : (
-            <span className="username">用户名</span>
+            <img src={user.avatar} alt="头像" />
+          )}
+          {JSON.stringify(user) === '{}' || user === undefined ? null : (
+            <span className="username">{user.name}</span>
           )}
           {JSON.stringify(user) === '{}' || user === undefined ? null : (
             <a className="sign" onClick={this.props.handelSignOutClike}>
@@ -40,6 +42,10 @@ const mapDispatchtoProps = dispatch => ({
     fetch(`https://my-json-server.typicode.com/kevindongzg/demo/login`)
       .then(res => res.json())
       .then(json => dispatch(setUser(json)));
+  },
+
+  handelSignOutClike() {
+    dispatch(setUser(undefined));
   }
 });
 
